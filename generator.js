@@ -1182,6 +1182,8 @@
           ib_thousands_separator = '';
       }
 
+      ib_issue_date = new Date(ib_data['{issue_date}'].default_text);
+      ib_initDates();
       ib_currency_symbol = $(ib_currencies).map(function(idx, val) {
                                                   if(val.code == ib_data['{currency}'].default_text)
                                                     return val.symbol;
@@ -1277,8 +1279,8 @@
         }
       }
     }
-    else
-      setTimeout(function() { ib_loadCompanyData(); }, ib_timeout);
+    // else
+    //   setTimeout(function() { ib_loadCompanyData(); }, ib_timeout);
 
     ib_data_timeout += ib_timeout;
   };
@@ -2193,15 +2195,23 @@
       ib_due_date_formated;
 
   var ib_initDates = function() {
-    ib_issue_date = new Date();
-    ib_due_date = new Date(new Date().setDate(new Date().getDate() + parseInt(ib_data['{net_term}'].default_text)));
+    if( typeof(ib_issue_date) == 'undefined' ) {
+      ib_issue_date = new Date();
+    }
 
+    ib_due_date = ib_addDays(ib_issue_date, parseInt(ib_data['{net_term}'].default_text));
     ib_issue_date_formated = ib_formatDate(ib_issue_date, ib_data.date_format);
     ib_due_date_formated = ib_formatDate(ib_due_date, ib_data.date_format);
 
     ib_data['{issue_date}'].default_text = ib_issue_date_formated;
     ib_data['{due_date}'].default_text = ib_due_date_formated;
   };
+
+  var ib_addDays = function(date, days) {
+    var result = new Date(date);   
+    result.setDate(result.getDate() + days);
+    return result;
+  }
 
   var ib_formatDate = function(date, format) {
     var separator = format.match(/[.\/\-\s].*?/),
@@ -2968,8 +2978,11 @@
       // special cases
       switch(key) {
         case 'issue_date':
+          raw_data = raw_data.replace(data_key, ib_issue_date.toISOString());
+          break;
+
         case 'due_date':
-          raw_data = raw_data.replace(data_key, '');
+          raw_data = raw_data.replace(data_key, ib_due_date.toISOString());
           break;
 
         case 'items_columns':
