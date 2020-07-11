@@ -120,7 +120,6 @@
       // Init the invoice dependencies
       ib_initCurrencies();
       ib_initInvoiceData();
-      ib_initDates();
 
       // Init the invoice functionality
       ib_initTemplate();
@@ -1182,7 +1181,15 @@
           ib_thousands_separator = '';
       }
 
-      ib_issue_date = new Date(ib_data['{issue_date}'].default_text);
+      var issueDateText = ib_data['{issue_date}'].default_text;
+
+      if (issueDateText == '') {
+        ib_issue_date = new Date();
+      }
+      else {
+        ib_issue_date = new Date(ib_data['{issue_date}'].default_text);
+      }
+
       ib_initDates();
       ib_currency_symbol = $(ib_currencies).map(function(idx, val) {
                                                   if(val.code == ib_data['{currency}'].default_text)
@@ -2195,10 +2202,6 @@
       ib_due_date_formated;
 
   var ib_initDates = function() {
-    if( typeof(ib_issue_date) == 'undefined' ) {
-      ib_issue_date = new Date();
-    }
-
     ib_due_date = ib_addDays(ib_issue_date, parseInt(ib_data['{net_term}'].default_text));
     ib_issue_date_formated = ib_formatDate(ib_issue_date, ib_data.date_format);
     ib_due_date_formated = ib_formatDate(ib_due_date, ib_data.date_format);
