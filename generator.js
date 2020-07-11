@@ -2161,6 +2161,16 @@
 
         setTimeout(ib_calculateTotals, 0);
       });
+
+    $('[data-ibcl-id="item_price"]')
+      .on('blur', function () {
+        $(this).text($(this).text().getNumber().toFixed(2).getFormatedNumber());
+      });
+
+    $('[data-ibcl-id="item_quantity"]')
+      .on('blur', function () {
+        $(this).text($(this).text().toValidNumberString().getFormatedNumber());
+      });
   };
 
   var ib_addRow = function(el, e) {
