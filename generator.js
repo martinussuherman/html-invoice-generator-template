@@ -1766,8 +1766,12 @@
 
       number = number.replace(/\./g, ib_decimal_separator);
       counter = 0;
-      for(i = number.lastIndexOf(ib_decimal_separator) - 1; i >= 0; i--)
-      {
+      var startPos = number.lastIndexOf(ib_decimal_separator);
+
+      if (startPos == -1)
+        startPos = number.length;
+
+      for (i = startPos - 1; i >= 0; i--) {
         if(counter < 2)
         {
           counter++;
