@@ -824,10 +824,10 @@ html body {
   width: 100%;
   max-width: 820px;
   min-height: 1158px;
-  margin: 105px auto 30px auto;
-  -moz-box-shadow: 0px 0px 20px rgba(80, 80, 80, 0.7);
-  -webkit-box-shadow: 0px 0px 20px rgba(80, 80, 80, 0.7);
-  box-shadow: 0px 0px 20px rgba(80, 80, 80, 0.7);
+  margin: 105px auto 30px;
+  -moz-box-shadow: 0 0 20px rgba(80, 80, 80, 0.7);
+  -webkit-box-shadow: 0 0 20px rgba(80, 80, 80, 0.7);
+  box-shadow: 0 0 20px rgba(80, 80, 80, 0.7);
 }
 /* line 175, ../src/sass/generator.scss */
 html input, html button, html textarea, html select {
@@ -1323,7 +1323,7 @@ ib-span.ibcl_ie_contenteditable[contenteditable="true"].hidden {
   z-index: 900;
   top: 18px;
   left: 95px;
-  padding: 15px 10px 10px 10px !important;
+  padding: 15px 10px 10px !important;
   font: normal 14px/1.4em "Open Sans", "Helvetica Neue", Helvetica, Arial, Sans-serif !important;
   width: 165px;
   -moz-box-shadow: 0 0 5px 0 #999;
@@ -1446,7 +1446,7 @@ ib-span.ibcl_ie_contenteditable[contenteditable="true"].hidden {
 .ib_large_button {
   display: block;
   width: 150px;
-  margin: 35px auto 0 auto;
+  margin: 35px auto 0;
   padding: 7px;
   font-size: 14px;
 }
@@ -1484,9 +1484,9 @@ ib-span.ibcl_ie_contenteditable[contenteditable="true"].hidden {
 }
 /* line 743, ../src/sass/generator.scss */
 .ib_invoice_commands_wrap.ib_commands_shadow {
-  -moz-box-shadow: 0px 0px 30px rgba(142, 142, 142, 0.7);
-  -webkit-box-shadow: 0px 0px 30px rgba(142, 142, 142, 0.7);
-  box-shadow: 0px 0px 30px rgba(142, 142, 142, 0.7);
+  -moz-box-shadow: 0 0 30px rgba(142, 142, 142, 0.7);
+  -webkit-box-shadow: 0 0 30px rgba(142, 142, 142, 0.7);
+  box-shadow: 0 0 30px rgba(142, 142, 142, 0.7);
 }
 /* line 747, ../src/sass/generator.scss */
 .ib_invoice_commands_wrap .ib_invoice_commands {
@@ -1495,7 +1495,7 @@ ib-span.ibcl_ie_contenteditable[contenteditable="true"].hidden {
   max-width: 820px;
   margin: 0 auto;
   clear: both;
-  padding: 30px 0 20px 0;
+  padding: 30px 0 20px;
 }
 /* line 755, ../src/sass/generator.scss */
 .ib_invoice_commands_wrap .ib_invoice_commands .ib_default_button {
@@ -1742,7 +1742,7 @@ ib-span.ibcl_ie_contenteditable[contenteditable="true"].hidden {
 @media only screen and (max-width: 460px) {
   /* line 1004, ../src/sass/generator.scss */
   .ib_invoice_commands {
-    padding: 15px 0 15px 0 !important;
+    padding: 15px 0 !important;
   }
   /* line 1007, ../src/sass/generator.scss */
   .ib_invoice_commands .ib_clear_xsmall {
