@@ -1,5 +1,6 @@
 # html-invoice-generator-template
 
+[![CodeFactor](https://www.codefactor.io/repository/github/martinussuherman/html-invoice-generator-template/badge)](https://www.codefactor.io/repository/github/martinussuherman/html-invoice-generator-template)
 ---
 
 ## HTML Invoice Generator Result Template
